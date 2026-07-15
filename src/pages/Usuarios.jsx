@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 
-const Productos = () => {
-  const [productos, setProductos] = useState([]);
+const Usuarios = () => {
+  const [usuarios, setUsuarios] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const cargarProductos = async () => {
+    const cargarUsuarios = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/products");
+        const response = await fetch("http://localhost:4000/api/users");
 
         if (!response.ok) {
-          throw new Error("Error al obtener los productos");
+          throw new Error("Error al obtener los usuarios");
         }
 
         const data = await response.json();
-        setProductos(data);
+        setUsuarios(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -23,11 +23,11 @@ const Productos = () => {
       }
     };
 
-    cargarProductos();
+    cargarUsuarios();
   }, []);
 
   if (loading) {
-    return <h2>Cargando productos...</h2>;
+    return <h2>Cargando usuarios...</h2>;
   }
 
   if (error) {
@@ -36,23 +36,23 @@ const Productos = () => {
 
   return (
     <div>
-      <h1>Productos</h1>
+      <h1>Usuarios</h1>
 
       <table border="1" cellPadding="10">
         <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Precio</th>
+            <th>Email</th>
           </tr>
         </thead>
 
         <tbody>
-          {productos.map((producto) => (
-            <tr key={producto.id}>
-              <td>{producto.id}</td>
-              <td>{producto.name}</td>
-              <td>${producto.price}</td>
+          {usuarios.map((usuario) => (
+            <tr key={usuario.id}>
+              <td>{usuario.id}</td>
+              <td>{usuario.name}</td>
+              <td>{usuario.email}</td>
             </tr>
           ))}
         </tbody>
@@ -61,4 +61,4 @@ const Productos = () => {
   );
 };
 
-export default Productos;
+export default Usuarios;

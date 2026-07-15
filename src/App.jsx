@@ -8,10 +8,17 @@ import Productos from "./pages/Productos";
 import Registro from "./pages/Registro";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import Usuarios from "./pages/Usuarios";
+import Pedidos from "./pages/Pedidos";
+import Header from "./Components/Header";
 
-const estilo = ({ isActive }) => ({
+const estiloBase = {
   textDecoration: "none",
   marginRight: "20px",
+};
+
+const estiloNav = ({ isActive }) => ({
+  ...estiloBase,
   color: isActive ? "#2563eb" : "#333",
   fontWeight: isActive ? "bold" : "normal",
 });
@@ -19,29 +26,39 @@ const estilo = ({ isActive }) => ({
 export default function App() {
   return (
     <>
+      <Header />
+
       <nav>
-        <NavLink to="/" end style={estilo}>
-          Inicio
+        <NavLink to="/" end style={estiloNav}>
+          Inicio |
         </NavLink>
 
-        <NavLink to="/acerca" style={estilo}>
-          Acerca
+        <NavLink to="/acerca" style={estiloNav}>
+          Acerca |
         </NavLink>
 
-        <NavLink to="/contacto" style={estilo}>
-          Contacto
+        <NavLink to="/contacto" style={estiloNav}>
+          Contacto |
         </NavLink>
 
-        <NavLink to="/registro" style={estilo}>
-          Registro
+        <NavLink to="/registro" style={estiloNav}>
+          Registro |
         </NavLink>
 
-        <NavLink to="/login" style={estilo}>
-          Login
+        <NavLink to="/login" style={estiloNav}>
+          Login |
         </NavLink>
 
-        <Link to="/productos">
-          Productos
+        <Link to="/productos" style={estiloBase}>
+          Productos |
+        </Link>
+
+        <Link to="/usuarios" style={estiloBase}>
+          Usuarios |
+        </Link>
+
+        <Link to="/pedidos" style={estiloBase}>
+          Pedidos |
         </Link>
 
    
@@ -52,6 +69,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/productos" element={<Productos />} />
+
+        <Route path="/usuarios" element={<Usuarios />} />
+        <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/acerca" element={<Acerca />} />
         <Route path="/contacto" element={<Contacto />} />
 

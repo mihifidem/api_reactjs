@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 
-const Productos = () => {
-  const [productos, setProductos] = useState([]);
+const Pedidos = () => {
+  const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const cargarProductos = async () => {
+    const cargarPedidos = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/products");
+        const response = await fetch("http://localhost:4000/api/orders");
 
         if (!response.ok) {
-          throw new Error("Error al obtener los productos");
+          throw new Error("Error al obtener los pedidos");
         }
 
         const data = await response.json();
-        setProductos(data);
+        setPedidos(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -23,11 +23,11 @@ const Productos = () => {
       }
     };
 
-    cargarProductos();
+    cargarPedidos();
   }, []);
 
   if (loading) {
-    return <h2>Cargando productos...</h2>;
+    return <h2>Cargando pedidos...</h2>;
   }
 
   if (error) {
@@ -36,23 +36,24 @@ const Productos = () => {
 
   return (
     <div>
-      <h1>Productos</h1>
+      <h1>Pedidos</h1>
 
       <table border="1" cellPadding="10">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Precio</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Date</th>
           </tr>
         </thead>
-
         <tbody>
-          {productos.map((producto) => (
-            <tr key={producto.id}>
-              <td>{producto.id}</td>
-              <td>{producto.name}</td>
-              <td>${producto.price}</td>
+          {pedidos.map((pedido) => (
+            <tr key={pedido.id}>
+              <td>{pedido.id}</td>
+              <td>{pedido.user_name}</td>
+              <td>{pedido.status}</td>
+              <td>{pedido.created_at}</td>
             </tr>
           ))}
         </tbody>
@@ -61,4 +62,4 @@ const Productos = () => {
   );
 };
 
-export default Productos;
+export default Pedidos;
