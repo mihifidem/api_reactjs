@@ -10,7 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Usuarios from "./pages/Usuarios";
 import Pedidos from "./pages/Pedidos";
-import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 const estiloBase = {
   textDecoration: "none",
@@ -26,9 +26,8 @@ const estiloNav = ({ isActive }) => ({
 export default function App() {
   return (
     <>
-      <Header />
 
-      <nav>
+      <nav style={{ marginLeft: "40px" }}>
         <NavLink to="/" end style={estiloNav}>
           Inicio |
         </NavLink>
@@ -81,6 +80,8 @@ export default function App() {
         <Route path="/registro" element={<Registro />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

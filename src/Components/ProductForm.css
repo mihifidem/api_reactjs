@@ -1,0 +1,71 @@
+.product-form {
+  margin: 16px 40px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  max-width: 640px;
+  background-color: #f9fafb;
+}
+
+.product-form__title {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.product-form__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.product-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.product-form__input {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+}
+
+.product-form__actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.product-form__button {
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-form__button--save {
+  background-color: #2563eb;
+}
+
+.product-form__button--cancel {
+  background-color: #6b7280;
+}
+
+.product-form__error {
+  margin: 10px 0 0;
+  color: #dc2626;
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .product-form {
+    margin: 16px;
+  }
+
+  .product-form__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,19 @@
+.site-footer {
+  margin-top: 24px;
+  padding: 16px 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.site-footer__text {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.site-footer__heart {
+  color: #ef4444;
+}

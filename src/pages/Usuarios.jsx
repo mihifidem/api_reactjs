@@ -38,7 +38,7 @@ const Usuarios = () => {
     <div>
       <h1>Usuarios</h1>
 
-      <table border="1" cellPadding="10">
+          <table className="table table-striped" style={{ marginLeft: "40px", width: "80%" }}>
         <thead>
           <tr>
             <th>ID</th>

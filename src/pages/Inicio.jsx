@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 export default function Inicio() {
 
@@ -11,6 +12,7 @@ export default function Inicio() {
   return (
 
     <>
+    <Header />
       <h1>Página Inicio</h1>
 
       <button onClick={irContacto}>
