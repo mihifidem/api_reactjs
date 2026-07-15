@@ -4,7 +4,7 @@ import Inicio from "./pages/Inicio";
 import Acerca from "./pages/Acerca";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
-import Producto from "./pages/Producto";
+import Productos from "./pages/Productos";
 import Registro from "./pages/Registro";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
@@ -32,7 +32,7 @@ export default function App() {
           Contacto
         </NavLink>
 
-           <NavLink to="/registro" style={estilo}>
+        <NavLink to="/registro" style={estilo}>
           Registro
         </NavLink>
 
@@ -40,24 +40,18 @@ export default function App() {
           Login
         </NavLink>
 
-         <Link to="/producto/1">
-    Producto 1
-</Link>
+        <Link to="/productos">
+          Productos
+        </Link>
 
-<Link to="/producto/2">
-    Producto 2
-</Link>
-
-<Link to="/producto/3">
-    Producto 3
-</Link>
+   
       </nav>
 
       <hr />
 
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/producto/:id" element={<Producto />} />
+        <Route path="/productos" element={<Productos />} />
         <Route path="/acerca" element={<Acerca />} />
         <Route path="/contacto" element={<Contacto />} />
 
