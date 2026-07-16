@@ -193,7 +193,7 @@ const Productos = () => {
         />
       )}
 
-      <table className="table table-striped" style={{ marginLeft: "40px", width: "80%" }}>
+      <table className="table table-dark" style={{ marginLeft: "40px", width: "80%" }}>
 
         <thead>
           <tr>

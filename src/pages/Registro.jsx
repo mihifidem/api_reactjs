@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import Header from "../Components/Header";
 export default function Registro() {
 
   const navigate = useNavigate();
@@ -15,8 +15,13 @@ export default function Registro() {
   return (
 
     <>
-      <h1>Registro</h1>
-
+<Header
+      colorbg="lightgrey"
+      color="black"
+      
+      title_small="Registro"
+      title="Regístrate para acceder a todas las funcionalidades"
+    />
       <button onClick={guardarUsuario}>
         Guardar
       </button>

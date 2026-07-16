@@ -1,5 +1,4 @@
 import { Routes, Route, NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Inicio from "./pages/Inicio";
 import Acerca from "./pages/Acerca";
 import Contacto from "./pages/Contacto";
@@ -12,76 +11,75 @@ import Usuarios from "./pages/Usuarios";
 import Pedidos from "./pages/Pedidos";
 import Footer from "./Components/Footer";
 
-const estiloBase = {
-  textDecoration: "none",
-  marginRight: "20px",
-};
-
 const estiloNav = ({ isActive }) => ({
-  ...estiloBase,
-  color: isActive ? "#2563eb" : "#333",
-  fontWeight: isActive ? "bold" : "normal",
+  color: isActive ? "#05151d" : "rgba(232, 255, 254, 0.8)",
+  background: isActive ? "linear-gradient(135deg, #5eead4, #38bdf8)" : "transparent",
+  boxShadow: isActive ? "0 12px 28px rgba(56, 189, 248, 0.18)" : "none",
 });
 
 export default function App() {
   return (
-    <>
+    <div className="app-shell">
+      <header className="app-shell__header">
+        <div className="app-shell__brand">
+          <span className="app-shell__brand-mark">BT</span>
+          <div>
+            <strong>Blue Turquoise</strong>
+            <span>Tech interface</span>
+          </div>
+        </div>
 
-      <nav style={{ marginLeft: "40px" }}>
+        <nav className="app-shell__nav" aria-label="Principal">
         <NavLink to="/" end style={estiloNav}>
-          Inicio |
+          Inicio
         </NavLink>
 
         <NavLink to="/acerca" style={estiloNav}>
-          Acerca |
+          Acerca
         </NavLink>
 
         <NavLink to="/contacto" style={estiloNav}>
-          Contacto |
+          Contacto
         </NavLink>
 
         <NavLink to="/registro" style={estiloNav}>
-          Registro |
+          Registro
         </NavLink>
 
         <NavLink to="/login" style={estiloNav}>
-          Login |
+          Login
         </NavLink>
 
-        <Link to="/productos" style={estiloBase}>
-          Productos |
-        </Link>
+        <NavLink to="/productos" style={estiloNav}>
+          Productos
+        </NavLink>
 
-        <Link to="/usuarios" style={estiloBase}>
-          Usuarios |
-        </Link>
+        <NavLink to="/usuarios" style={estiloNav}>
+          Usuarios
+        </NavLink>
 
-        <Link to="/pedidos" style={estiloBase}>
-          Pedidos |
-        </Link>
+        <NavLink to="/pedidos" style={estiloNav}>
+          Pedidos
+        </NavLink>
+        </nav>
+      </header>
 
-   
-      </nav>
-
-      <hr />
-
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/productos" element={<Productos />} />
-
-        <Route path="/usuarios" element={<Usuarios />} />
-        <Route path="/pedidos" element={<Pedidos />} />
-        <Route path="/acerca" element={<Acerca />} />
-        <Route path="/contacto" element={<Contacto />} />
-
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-
-        <Route path="/registro" element={<Registro />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <main className="app-shell__content">
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/usuarios" element={<Usuarios />} />
+          <Route path="/pedidos" element={<Pedidos />} />
+          <Route path="/acerca" element={<Acerca />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

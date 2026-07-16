@@ -1,7 +1,21 @@
 .site-footer {
   margin-top: 24px;
-  padding: 16px 12px;
-  border-top: 1px solid #e5e7eb;
+  padding: 22px 28px;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.site-footer__eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: #ffffff;
 }
 
 .site-footer__text {
@@ -11,9 +25,9 @@
   justify-content: center;
   gap: 8px;
   font-size: 0.95rem;
-  color: #111827;
+  color: #ffffff;
 }
 
 .site-footer__heart {
-  color: #ef4444;
+  color: #5eead4;
 }
